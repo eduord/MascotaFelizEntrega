@@ -30,7 +30,7 @@ export class UsuarioController {
     @repository(UsuarioRepository)
     public usuarioRepository : UsuarioRepository,
     @service(AutenticacionService)
-    public servicioAutenticacion : AutenticacionService 
+    public servicioAutenticacion : AutenticacionService
   ) {}
 
   @post('/identificarUsuario',{
@@ -59,7 +59,7 @@ export class UsuarioController {
     }
   }
 
- 
+
   @post('/usuarios')
   @response(200, {
     description: 'Usuario model instance',
@@ -82,10 +82,10 @@ export class UsuarioController {
     let claveCifrada = this.servicioAutenticacion.CifrarClave(clave);
     usuario.contrasena = claveCifrada;
     let p = await this.usuarioRepository.create(usuario);
-    
+
     //Notificar al usuario
     let destino = usuario.correo;
-    let asunto = 'Resgisto en la plataforma';
+    let asunto = 'Registo en la plataforma';
     let contenido= `Hola ${usuario.nombre}, su usuario es ${usuario.correo} y su contraseña es ${clave}`;
     fetch(`http://127.0.0.1:5000/email?correo_destino=${destino}&asunto_correo=${asunto}&cuerpo_correo=A${contenido}`)
       .then((data:any)=>{

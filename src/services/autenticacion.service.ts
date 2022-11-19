@@ -59,7 +59,7 @@ export class AutenticacionService {
   }
 
   CifrarClave(clave:string){
-    let claveCifrada = cryptoJS.MDS(clave);
+    let claveCifrada = cryptoJS.MD5(clave);
     return claveCifrada;
   }
 }
