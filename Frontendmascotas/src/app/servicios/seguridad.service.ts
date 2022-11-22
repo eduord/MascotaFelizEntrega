@@ -1,25 +1,33 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Configuracion_datos } from '../configuracion/configuracion_datos';
+import { ModeloDatos } from '../modelos/datos.modelo';
 import { ModeloIdentificar } from '../modelos/identificar.modelo';
+import { LocalStorageService } from './almacenamiento/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SeguridadService {
 
-  url = 'http://localhost:3000';
+  url:string = Configuracion_datos.SEGURIDAD_MS_URL;
   datosUsuarioEnSesion = new BehaviorSubject<ModeloIdentificar>(new ModeloIdentificar());
 
-  constructor(private http: HttpClient) {
-    this.VerificarSesionActual();
+  constructor(private http: HttpClient, 
+    private localStorageService: LocalStorageService){
+      this.VerificarSesionActual();
+    
   }
 
-
-  VerificarSesionActual(){
-    let datos = this.ObtenerInformacionSesion();
-    if(datos){
+  VerificarSesionActual(): boolean {
+    let datos = this.localStorageService.ObtenerInformacionSesion();
+    if (datos.tk) {
+      datos.estaIdentificado = true;
       this.RefrescarDatosSesion(datos);
+      return true;
+    } else {
+      return false;
     }
   }
 
@@ -27,56 +35,14 @@ export class SeguridadService {
     this.datosUsuarioEnSesion.next(datos);
   }
 
-  ObtenerDatosUsuarioEnSesion(){
+  ObtenerInformacionSesion(){
     return this.datosUsuarioEnSesion.asObservable();
   }
 
-  Identificar(usuario: string, clave: string): Observable<ModeloIdentificar> {
+  Identificar(datos: ModeloDatos): Observable<ModeloIdentificar> {
     return this.http.post<ModeloIdentificar>(`${this.url}/identificarUsuario`, {
-      usuario: usuario,
-      clave: clave
-    }, {
-      headers: new HttpHeaders({
-
-      })
-    })
-  }
-
-  AlmacenarSesion(datos: ModeloIdentificar) {
-    datos.estaIdentificado = true;
-    let stringDatos = JSON.stringify(datos);
-    localStorage.setItem("datosSesion", stringDatos);
-    this.RefrescarDatosSesion(datos);
-  }
-
-  ObtenerInformacionSesion() {
-    let datosString = localStorage.getItem("datosSesion");
-    if (datosString) {
-      let datos = JSON.parse(datosString);
-      return datos;
-    } else {
-      return null;
+      usuario: datos.usuario,
+      clave: datos.clave
+    });
     }
   }
-
-  EliminarInformacionSesion() {
-    localStorage.removeItem("datosSesion");
-    this.RefrescarDatosSesion(new ModeloIdentificar());
-  }
-
-  SeHaIniciadoSesion() {
-    let datosString = localStorage.getItem("datosSesion");
-    return datosString;
-  }
-
-  ObtenerToken(){
-    let datosString = localStorage.getItem("datosSesion");
-    if(datosString){
-      let datos = JSON.parse(datosString);
-      return datos.tk;
-    }else{
-      return '';
-    }
-  }
-
-}

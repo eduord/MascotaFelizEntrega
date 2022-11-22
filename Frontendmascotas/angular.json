@@ -27,7 +27,10 @@
               "node_modules/materialize-css/dist/css/materialize.min.css"
             ],
             "scripts": [
-              "node_modules/materialize-css/dist/js/materialize.min.js" 
+              "node_modules/materialize-css/dist/js/materialize.min.js", 
+              "src/assets/js/init.js",
+              "src/assets/js/funciones.js"
+
             ]
           },
           "configurations": {

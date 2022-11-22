@@ -1,5 +1,5 @@
 export class ModeloDatos{
-    id?:String;
-    nombre?: String;
-    correo?: String
+    usuario?: string;
+    clave?: string
+
 }
