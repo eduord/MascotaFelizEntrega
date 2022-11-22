@@ -1,0 +1,53 @@
+<div class="section"></div>
+<main>
+    <div class="section"></div>
+
+    <div class="container center">
+        <div class="z-depth-1 grey lighten-4 row"
+            style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+            <form class="col s12" [formGroup]="fgValidador" >
+                <div class='row'>
+                    <div class='col s12'>
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input formControlName="usuario" class='validate' type='text' name='usuario' id='usuario' />
+                        <label for='usuario'>Usuario</label>
+                    </div>
+                    <div class="errorValidation">
+                        <label *ngIf="GetDF['usuario'].errors && (fgValidador.controls['usuario'].dirty || fgValidador.controls['usuario'].touched)">
+                            El nombre de usuario no cumple con los requisitos (correo electrónico)
+                        </label>
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input formControlName="clave" class='validate' type='clave' name='clave' id='clave' />
+                        <label for='clave'>Contraseña</label>
+                        <div class="errorValidation">
+                            <label *ngIf="GetDF['clave'].errors && (fgValidador.controls['clave'].dirty || fgValidador.controls['clave'].touched)">
+                                La contraseña no cumple con los requisitos
+                            </label>
+                        </div>
+                    </div>
+                    <label style='float: right;'>
+                        <a class='' routerLink='/seguridad/recuperar-clave'><b>¿Olvidó su contraseña?</b></a>
+                    </label>
+                </div>
+
+                <br />
+                <div class='row center'>
+                    <button [disabled]="fgValidador.controls['usuario'].errors || fgValidador.controls['clave'].errors" type='button' (click)="Identificar()" name='btn_Identificar'
+                        class='col s12 btn btn-large waves-effect'>Ingresar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="section"></div>
+    <div class="section"></div>
+</main>
