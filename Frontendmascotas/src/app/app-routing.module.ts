@@ -18,10 +18,6 @@ const routes: Routes = [
     loadChildren: () => import("./modulos/seguridad/seguridad.module").then(x => x.SeguridadModule)
   },
   {
-    path:"productos",
-    loadChildren: () => import("./modulos/productos/productos.module").then(x => x.ProductosModule)
-  },
-  {
     path:"asesor",
     loadChildren: () => import("./modulos/asesor/asesor.module").then(x => x.AsesorModule)
   },

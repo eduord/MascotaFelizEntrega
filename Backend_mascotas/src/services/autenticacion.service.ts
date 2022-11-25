@@ -62,4 +62,19 @@ export class AutenticacionService {
     let claveCifrada = cryptoJS.MD5(clave);
     return claveCifrada;
   }
+   /* Valida que exista el usuario para recuperar la contraseña */
+  RecuperarClaveUsuario(usuario: string) {
+    try {
+      const p = this.usuarioRepository.findOne({
+        where: {correo: usuario},
+      });
+      
+      if (p) {
+        return p;
+      }
+      return false;
+    } catch (error) {
+      return false;
+    }
+  }
 }

@@ -3,6 +3,7 @@
       <a routerLink="/inicio" class="brand-logo">Logo</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
+<<<<<<< HEAD
         <li *ngIf="seInicioSesion"><a routerLink="/asesor/buscar-afiliacion">Buscar Afiliación</a></li>
         <li *ngIf="seInicioSesion"><a routerLink="administracion/productos">Productos</a></li>
         <li *ngIf="seInicioSesion"><a routerLink="planes/consultar">Planes</a></li>
@@ -10,15 +11,28 @@
         <li *ngIf="!seInicioSesion"><a routerLink="seguridad/registrarCliente">Registrarse como cliente</a></li>
         <li *ngIf="seInicioSesion"><a routerLink="seguridad/cambiarClave">Cambiar clave</a></li>
         <li *ngIf="seInicioSesion"><a routerLink="seguridad/cerrar-sesion">Cerrar Sesión</a></li>
+=======
+
+        <li *ngIf="seInicioSesion"><a routerLink="/asesor/buscar-afiliacion">Buscar Afiliación</a></li>
+        <li *ngIf="!seInicioSesion"><a routerLink="/seguridad/identificacion">Iniciar Sesión</a></li>
+        <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cambiarClave">Cambiar Clave</a></li>
+        <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cerrarSesion">Cerrar Sesión</a></li>
+>>>>>>> 91ee1f9a5ca1a0cdc0e34bc6b2bdda8b2371b856
       </ul>
     </div>
   </nav>
 
   <ul class="sidenav" id="mobile-demo">
     <li *ngIf="seInicioSesion"><a routerLink="/asesor/buscar-afiliacion">Buscar Afiliación</a></li>
+<<<<<<< HEAD
     <li *ngIf="seInicioSesion"><a routerLink="administracion/productos">Productos</a></li>
     <li *ngIf="!seInicioSesion"><a routerLink="seguridad/identificacion">Iniciar Sesión</a></li>
     <li *ngIf="!seInicioSesion"><a routerLink="seguridad/registrarCliente">Registrarse como cliente</a></li>
     <li *ngIf="seInicioSesion"><a routerLink="seguridad/cambiarClave">Cambiar clave</a></li>
     <li *ngIf="seInicioSesion"><a routerLink="seguridad/cerrarSesion">Cerrar Sesión</a></li>
+=======
+    <li *ngIf="!seInicioSesion"><a routerLink="/seguridad/identificacion">Iniciar Sesión</a></li>
+    <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cambiarClave">Cambiar Clave</a></li>
+    <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cerrarSesion">Cerrar Sesión</a></li>
+>>>>>>> 91ee1f9a5ca1a0cdc0e34bc6b2bdda8b2371b856
   </ul>

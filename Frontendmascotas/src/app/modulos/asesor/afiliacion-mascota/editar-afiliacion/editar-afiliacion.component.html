@@ -1,1 +1,50 @@
+<<<<<<< HEAD
 <p>editar-afiliacion works!</p>
+=======
+<div class="row">
+    <h3 class="center-align">Editar la Afiliacion de Mascota</h3>
+    <article class="col s6 offset-s3">
+        <form [formGroup]="fgValidador" (ngSubmit)="ActualizarAfiliacion()" action="">
+            <input type="hidden" formControlName = "id">
+            <div class="input-field">
+                <input formControlName="nombre" type="text" name="nombre" required>
+                <label for="nombre">Nombre</label>
+            </div>
+            <div class="input-field">
+                <input formControlName="foto" type="text" name="foto" required>
+                <label for="foto">Foto</label>
+            </div>  
+            <div class="input-field">
+                <input formControlName="especie" type="text" name="especie" required>
+                <label for="especie">Especie</label>
+            </div>
+            <div class="input-field">
+                <input formControlName="comentario" type="text" name="comentario" required>
+                <label for="comentario">Comentario</label>
+            </div>
+            <div class="input-field">
+                <input formControlName="planId" type="text" name="planId" required>
+                <label for="planId">Plan</label>
+            </div>
+            <div class="input-field">
+                <input formControlName="usuarioId" type="text" name="usuarioId" required>
+                <label for="usuarioId">Propietario</label>
+            </div>
+            <div class="col s12">
+                <p class="center-align">
+                    <select formControlName="estado" style="display: block;">
+                    <option value="activo" selected>Activo</option>
+                    <option value="rechazado" selected>Rechazado</option>
+                    <option value="pendiente">Pendiente</option>
+                    </select>
+                </p>
+            </div>
+            <br>
+            <br>
+            <p class="center-align">
+                <button [disabled]="fgValidador.invalid" class="btn btn-primary" type="submit">Actualizar</button>
+            </p>
+        </form>
+    </article>
+</div>
+>>>>>>> 91ee1f9a5ca1a0cdc0e34bc6b2bdda8b2371b856

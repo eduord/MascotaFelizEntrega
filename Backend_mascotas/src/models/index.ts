@@ -5,3 +5,4 @@ export * from './sucursal.model';
 export * from './producto-servicio.model';
 export * from './prospecto.model';
 export * from './credenciales.model';
+export * from './recuperacion-clave.model';
