@@ -7,7 +7,10 @@ import { RechazarSolicitudComponent } from './solicitudes/rechazar-solicitud/rec
 import { EditarAfiliacionComponent } from './afiliacion-mascota/editar-afiliacion/editar-afiliacion.component';
 import { EliminarAfiliacionComponent } from './afiliacion-mascota/eliminar-afiliacion/eliminar-afiliacion.component';
 import { BuscarAfiliacionComponent } from './afiliacion-mascota/buscar-afiliacion/buscar-afiliacion.component';
+<<<<<<< HEAD
+=======
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+>>>>>>> 91ee1f9a5ca1a0cdc0e34bc6b2bdda8b2371b856
 
 
 

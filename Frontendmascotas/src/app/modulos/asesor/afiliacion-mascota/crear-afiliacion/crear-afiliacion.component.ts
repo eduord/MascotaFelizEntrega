@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+<<<<<<< HEAD
+=======
 import { Router } from '@angular/router';
 import { ModeloAfiliacion } from 'src/app/modelos/afiliacion-mascota.modelo';
 import { AfiliacionMascotaService } from 'src/app/servicios/afiliacion-mascota.service';
+>>>>>>> 91ee1f9a5ca1a0cdc0e34bc6b2bdda8b2371b856
 
 @Component({
   selector: 'app-crear-afiliacion',
@@ -10,6 +13,19 @@ import { AfiliacionMascotaService } from 'src/app/servicios/afiliacion-mascota.s
   styleUrls: ['./crear-afiliacion.component.css']
 })
 export class CrearAfiliacionComponent implements OnInit {
+<<<<<<< HEAD
+  [x: string]: any;
+
+  fgValidador : FormGroup = this.fb.group({
+    'nombre':['', [Validators.required]],
+    'foto':['', [Validators.required]],
+    'estado':['', [Validators.required]],
+    'especie':['', [Validators.required]],
+    'comentario':['', [Validators.required]]
+
+  })
+  constructor(private fb : FormBuilder) { }
+=======
   
   fgValidador: FormGroup = this.fb.group({
     'nombre': ['', [Validators.required]],
@@ -24,10 +40,14 @@ export class CrearAfiliacionComponent implements OnInit {
   constructor(private afiliacionMascotaService: AfiliacionMascotaService,
     private fb: FormBuilder,
     private router: Router) { }
+>>>>>>> 91ee1f9a5ca1a0cdc0e34bc6b2bdda8b2371b856
 
   ngOnInit(): void {
   }
 
+<<<<<<< HEAD
+}
+=======
     GuardarAfiliacion(){
       //sacar la información del formulario
       let nombre = this.fgValidador.controls['nombre'].value;
@@ -62,3 +82,4 @@ export class CrearAfiliacionComponent implements OnInit {
     }
   
   }
+>>>>>>> 91ee1f9a5ca1a0cdc0e34bc6b2bdda8b2371b856

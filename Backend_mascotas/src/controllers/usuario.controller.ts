@@ -1,3 +1,4 @@
+import {authenticate} from '@loopback/authentication';
 import { service } from '@loopback/core';
 import {
   Count,
@@ -19,9 +20,10 @@ import {
   response,
   HttpErrors,
 } from '@loopback/rest';
-import {Credenciales, Usuario} from '../models';
+import {Usuario, Credenciales, RecuperacionClave} from '../models/';
 import {UsuarioRepository} from '../repositories';
 import {AutenticacionService} from '../services';
+import { Llaves } from '../config/llaves';
 
 const fetch = require('node-fetch');
 
@@ -94,6 +96,41 @@ export class UsuarioController {
       return p
 
   }
+    /* Servicio para la recuperacion de la clave del usuario*/
+    @authenticate.skip()
+    @post('/recuperarClave')
+    @response(200, {
+      description: 'Recuperacion de contraseña',
+    })
+    async recuperarClave(@requestBody() usuarioRecuperacion: RecuperacionClave) {
+      const p = await this.servicioAutenticacion.RecuperarClaveUsuario(
+        usuarioRecuperacion.usuario,
+      );
+      if (p) {
+        /* Generacion de la clave cifrada */
+        const clave = this.servicioAutenticacion.GenerarClave();
+        const claveCifrada = this.servicioAutenticacion.CifrarClave(clave);
+        p.contrasena = claveCifrada;
+
+        await this.usuarioRepository.updateById(p.id, p);
+
+        /* Envio del correo*/
+        const destino = p.correo;
+        const asunto = 'Recuperación de contraseña mascota feliz';
+        const contenido = `Hola ${p.nombre}, el restablecimiento de tu contraseña fue exitoso. Tu nueva contraseña es ${clave}`;
+        fetch(
+          `${Llaves.urlServicioNotificaciones}/correo_destino=${destino}&asunto_correo=${asunto}&cuerpo_correo=${contenido}`,
+        )
+          .then((data: unknown) => {
+            console.log(data);
+          })
+          .catch((err: unknown) => console.log(err));
+
+        return p;
+      } else {
+        throw new HttpErrors[401]('Datos no válidos');
+      }
+    }
 
   @get('/usuarios/count')
   @response(200, {

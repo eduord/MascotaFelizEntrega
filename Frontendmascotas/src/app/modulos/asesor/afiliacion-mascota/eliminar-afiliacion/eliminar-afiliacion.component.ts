@@ -1,7 +1,11 @@
+<<<<<<< HEAD
+import { Component, OnInit } from '@angular/core';
+=======
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AfiliacionMascotaService } from 'src/app/servicios/afiliacion-mascota.service';
+>>>>>>> 91ee1f9a5ca1a0cdc0e34bc6b2bdda8b2371b856
 
 @Component({
   selector: 'app-eliminar-afiliacion',
@@ -10,6 +14,13 @@ import { AfiliacionMascotaService } from 'src/app/servicios/afiliacion-mascota.s
 })
 export class EliminarAfiliacionComponent implements OnInit {
 
+<<<<<<< HEAD
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+=======
   id: string = ""
   constructor(private afiliacionMascotaService: AfiliacionMascotaService,
     private router: Router,
@@ -32,4 +43,5 @@ export class EliminarAfiliacionComponent implements OnInit {
   }
 
 
+>>>>>>> 91ee1f9a5ca1a0cdc0e34bc6b2bdda8b2371b856
 }

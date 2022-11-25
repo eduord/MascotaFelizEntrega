@@ -1,0 +1,39 @@
+<head>
+
+</head>
+<body>
+
+  <div class="container">
+    <h3 class="text-center p-4">Planes Mascota Feliz</h3>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of listadoPlanes">
+          <td>
+            {{p.nombre}}
+          </td>
+          <td>
+            {{p.descripcion}}
+          </td>
+          <td>
+            {{p.precio}}
+          </td>
+          <td>
+            <a routerLink="/planes/editar/{{p.id}}">Editar</a> |
+            <a routerLink="/planes/eliminar/{{p.id}}">Eliminar</a>
+          </td>
+        </tr>
+        <tr>
+      </tbody>
+    </table>
+    <button type="button" (click)="AgregarPlan()" id="botonGuardar" class="btn btn-primary">Agregar plan</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>

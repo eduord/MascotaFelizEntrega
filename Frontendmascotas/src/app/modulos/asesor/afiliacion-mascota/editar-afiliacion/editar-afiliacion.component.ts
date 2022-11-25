@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
+=======
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModeloAfiliacion } from 'src/app/modelos/afiliacion-mascota.modelo';
 import { AfiliacionMascotaService } from 'src/app/servicios/afiliacion-mascota.service';
+>>>>>>> 91ee1f9a5ca1a0cdc0e34bc6b2bdda8b2371b856
 
 @Component({
   selector: 'app-editar-afiliacion',
@@ -11,6 +14,13 @@ import { AfiliacionMascotaService } from 'src/app/servicios/afiliacion-mascota.s
 })
 export class EditarAfiliacionComponent implements OnInit {
 
+<<<<<<< HEAD
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+=======
   id : string = "";
   fgValidador: FormGroup = this.fb.group({
     'id':['', [Validators.required]],
@@ -83,4 +93,5 @@ export class EditarAfiliacionComponent implements OnInit {
       )
     }  
 
+>>>>>>> 91ee1f9a5ca1a0cdc0e34bc6b2bdda8b2371b856
 }

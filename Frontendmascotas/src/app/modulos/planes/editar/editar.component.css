@@ -1,0 +1,30 @@
+.container {
+  margin-top: 100px;
+}
+
+#main-container {
+  border-radius: var(--border-radius);
+  background: rgba( 255, 255, 255, 0.3 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.4 );
+}
+
+#botonGuardar {
+  background-color: rgb(220, 80, 52);
+  font-weight: 700;
+}
+
+#botonGuardar:active:hover {
+  background-color: rgb(242, 175, 0);
+  color: rgb(94, 94, 94);
+  font-weight: 700;
+}
+
+#botonGuardar:hover {
+  background-color: rgb(242, 175, 0);
+  color: rgb(94, 94, 94);
+  font-weight: 700;
+}
