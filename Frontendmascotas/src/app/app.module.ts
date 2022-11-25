@@ -8,6 +8,8 @@ import { PiePaginaComponent } from './plantilla/pie-pagina/pie-pagina.component'
 import { InicioComponent } from './plantilla/inicio/inicio.component';
 import { ErrorComponent } from './plantilla/error/error.component';
 import {HttpClientModule} from '@angular/common/http';
+import { CrearPedidoComponent } from './modulos/cliente/pedidos/crear-pedido/crear-pedido.component';
+
 
 
 @NgModule({
@@ -17,6 +19,7 @@ import {HttpClientModule} from '@angular/common/http';
     PiePaginaComponent,
     InicioComponent,
     ErrorComponent,
+    CrearPedidoComponent
 
   ],
   imports: [
