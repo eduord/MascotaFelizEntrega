@@ -1,0 +1,28 @@
+<table class="striped">
+    <thead>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Foto</th>
+        <th>Estado</th>
+        <th>Especie</th>
+        <th>Comentario</th>
+
+        <th>Edicion</th>
+        <th>Borrado</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let afiliacion of listadoAfiliaciones">
+           <td>{{afiliacion.id}}</td>
+           <td>{{afiliacion.nombre}}</td>
+           <td>{{afiliacion.foto}}</td>
+           <td>{{afiliacion.estado}}</td>
+           <td>{{afiliacion.especie}}</td>
+           <td>{{afiliacion.comentario}}</td>
+
+           <td><a routerLink="/asesor/editar-afiliacion/{{afiliacion.id}}">Editar</a></td>
+           <td><a routerLink="/asesor/eliminar-afiliacion/{{afiliacion.id}}">Borrar</a></td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<button class="btn btn-primary" routerLink="/asesor/crear-afiliacion">Crear Afiliación</button>

@@ -34,7 +34,7 @@ export class IdentificacionComponent implements OnInit {
   }
 
   Identificar() {
-    alert("AQUÍ VAMOS")
+    alert("Ingreso exitoso")
     if (this.fgValidador.invalid) {
       MostrarMensajeGeneral(Configuracion_datos.INVALID_FORM_MENSAJE);
     } else {

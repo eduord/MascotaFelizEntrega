@@ -1,30 +1,58 @@
-<div class="section"></div>
-<main>
-    <h5 class="indigo-text">Welcome! Ingresa con tu cuenta por favor</h5>
-    <div class="section"></div>
+<head>
+  <style>
 
-    <div class="container center">
-      <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
-
-        <form class="col s12" method="post">
-          <div class='row'>
-            <div class='col s12'>
-            </div>
-          </div>
-
-          <div class='row'>
-            <div class='input-field col s12'>
-              <input class='validate' type='email' name='email' id='email' />
-              <label for='email'>Enter your email</label>
-            </div>
-          </div>
-            <div class='row'>
-              <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Recuperar contraseña</button>
-            </div>
-        </form>
-      </div>
+  </style>
+</head>
+<body>
+  <div class="container" id="container-form">
+    <div class="row col-md-12 align-items-start justify-content-center">
+        <div class="col">
+        </div>
+        <div class="col-md-6 align-self-center w-50">
+            <form [formGroup]="fgValidador" class="needs-validation p-4" id="main-container" (ngSubmit)="RecuperarClave(contenido)">
+              <div class="row container text-center mb-4 mt-4">
+                  <h4>Recuperación de contraseña</h4>
+              </div>
+              <div class="row align-items-start">
+                <div class="col">
+                  <div class="form-floating mb-3">
+                    <input formControlName="usuario" type="text" class="form-control"
+                    [ngClass]="(fgValidador.controls['usuario'].touched || fgValidador.controls['usuario'].dirty) && fgValidador.controls['usuario'].errors ? 'is-invalid' : '' "
+                    id="nombre" placeholder="Nombre usuario" required>
+                    <label for="nombre">Nombre de usuario</label>
+                    <div class="invalid-feedback">
+                      Este campo es requerido
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row align-items-start mt-3">
+                  <div class="align-items-center container w-100 d-flex justify-content-center">
+                      <button [disabled]="!fgValidador.valid" type="submit" class="btn btn-primary p-3 w-75">Recuperar clave</button>
+                  </div>
+              </div>
+            </form>
+        </div>
+        <div class="col">
+        </div>
     </div>
+  </div>
 
-  <div class="section"></div>
-  <div class="section"></div>
-</main>
+  <!-- Modal -->
+  <ng-template #contenido let-modal>
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="staticBackdropLabel">Recuperación de clave</h1>
+      <button type="button" class="close" data-bs-dismiss="modal" aria-label="close" (click)="CerrarModal()"></button>
+    </div>
+    <div class="modal-body">
+      Se ha enviado un mensaje al correo electrónico registrado con la información para realizar el restablecimiento de la contraseña.
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="CerrarModal()" data-bs-dismiss="modal">Cerrar</button>
+    </div>
+  </ng-template>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <script src="scripts.js"></script>
+
+</body>
