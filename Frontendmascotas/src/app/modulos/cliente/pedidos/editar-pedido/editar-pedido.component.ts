@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-editar-pedido',
   templateUrl: './editar-pedido.component.html',
   styleUrls: ['./editar-pedido.component.css']
 })
-export class EditarPedidoComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class EditarPedidoComponent {
 
 }

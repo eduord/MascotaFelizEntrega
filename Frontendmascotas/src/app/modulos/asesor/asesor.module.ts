@@ -1,21 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AsesorRoutingModule } from './asesor-routing.module';
-import { SolicitudesComponent } from './solicitudes/solicitudes.component';
+import { CrearAfiliacionComponent } from './afiliacion-mascota/crear-afiliacion/crear-afiliacion.component';
 import { AceptarSolicitudComponent } from './solicitudes/aceptar-solicitud/aceptar-solicitud.component';
 import { RechazarSolicitudComponent } from './solicitudes/rechazar-solicitud/rechazar-solicitud.component';
+import { EditarAfiliacionComponent } from './afiliacion-mascota/editar-afiliacion/editar-afiliacion.component';
+import { EliminarAfiliacionComponent } from './afiliacion-mascota/eliminar-afiliacion/eliminar-afiliacion.component';
+import { BuscarAfiliacionComponent } from './afiliacion-mascota/buscar-afiliacion/buscar-afiliacion.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [
-    SolicitudesComponent,
+    CrearAfiliacionComponent,
+    EditarAfiliacionComponent,
+    EliminarAfiliacionComponent,
+    BuscarAfiliacionComponent,
     AceptarSolicitudComponent,
-    RechazarSolicitudComponent
+    RechazarSolicitudComponent,
   ],
   imports: [
     CommonModule,
-    AsesorRoutingModule
+    AsesorRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AsesorModule { }
